@@ -3,8 +3,8 @@ import path from 'path';
 
 // Try multiple PDF parsing approaches
 export async function parsePDF(filePath) {
-  console.log("🔍 Starting PDF parsing...");
-  console.log("📄 File path:", filePath);
+  console.log("Starting PDF parsing...");
+  console.log("File path:", filePath);
   
   try {
     // Check if file exists
