@@ -22,8 +22,8 @@ An intelligent quiz generator that creates multiple choice questions from PDF do
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/Antonyraja03/quiz-gen.git
-cd quiz-gen
+git clone https://github.com/australianastronautteam-sys/quiz-master.git
+cd quiz-master
 ```
 
 2. **Install dependencies**
