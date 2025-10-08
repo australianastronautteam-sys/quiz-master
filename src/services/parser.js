@@ -8,7 +8,7 @@ export async function parsePDF(filePath) {
   
   try {
     // Check if file exists
-    const path = require('path');
+    // Use the path module already imported at line 2
     const baseDir = path.resolve('/your/allowed/base/directory');
     const resolvedPath = path.resolve(baseDir, filePath);
     if (!resolvedPath.startsWith(baseDir)) {
