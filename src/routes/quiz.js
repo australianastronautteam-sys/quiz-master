@@ -7,18 +7,18 @@ const router = express.Router();
 
 // Generate quiz from PDF file
 router.post('/generate', upload.single('file'), async (req, res) => {
-  console.log('\n🚀 Starting PDF quiz generation...');
+  console.log('\n Starting PDF quiz generation...');
   
   try {
     if (!req.file) {
-      console.log('❌ No file uploaded');
+      console.log(' No file uploaded');
       return res.status(400).json({ 
         success: false, 
         error: 'No PDF file uploaded' 
       });
     }
 
-    console.log('📋 Upload details:');
+    console.log(' Upload details:');
     console.log('  - Original name:', req.file.originalname);
     console.log('  - Saved filename:', req.file.filename);
     console.log('  - File path:', req.file.path);
@@ -38,21 +38,21 @@ router.post('/generate', upload.single('file'), async (req, res) => {
       });
     }
 
-    console.log('🔄 Processing PDF...');
+    console.log('Processing PDF...');
     const startTime = Date.now();
     
     const text = await parsePDF(req.file.path);
     
     const processingTime = Date.now() - startTime;
-    console.log(`✅ PDF processed in ${processingTime}ms`);
-    console.log('📝 Extracted text length:', text.length);
-    console.log('🔤 First 100 characters:', text.substring(0, 100) + '...');
+    console.log(`PDF processed in ${processingTime}ms`);
+    console.log('Extracted text length:', text.length);
+    console.log('First 100 characters:', text.substring(0, 100) + '...');
     
     const numberOfQuestions = parseInt(req.body.questions) || 5;
-    console.log('🎯 Generating', numberOfQuestions, 'questions...');
+    console.log('Generating', numberOfQuestions, 'questions...');
     
     const quiz = await generateQuizFromText(text, numberOfQuestions);
-    console.log('✅ Quiz generated successfully with', quiz.length, 'questions');
+    console.log('Quiz generated successfully with', quiz.length, 'questions');
     
     res.json({ 
       success: true, 
@@ -66,7 +66,7 @@ router.post('/generate', upload.single('file'), async (req, res) => {
     });
     
   } catch (error) {
-    console.error('\n❌ PDF Quiz Generation Error:');
+    console.error('\n PDF Quiz Generation Error:');
     console.error('Error type:', error.constructor.name);
     console.error('Error message:', error.message);
     console.error('Full error:', error);
