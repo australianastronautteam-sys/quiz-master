@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 if (!process.env.GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY is not set in environment variables');
+  console.error('GEMINI_API_KEY is not set in environment variables');
   console.log('Please check your .env file and make sure it contains:');
   console.log('GEMINI_API_KEY=your_gemini_api_key_here');
   throw new Error('GEMINI_API_KEY is not set in environment variables');
@@ -52,13 +52,13 @@ Rules:
 - Generate exactly ${numberOfQuestions} questions
 `;
 
-    console.log(`🤖 Generating ${numberOfQuestions} questions with Gemini...`);
+    console.log(`Generating ${numberOfQuestions} questions with Gemini...`);
     
     const result = await model.generateContent(prompt);
     const response = await result.response;
     let content = response.text().trim();
 
-    console.log('📝 Raw Gemini response length:', content.length);
+    console.log('Raw Gemini response length:', content.length);
 
     // Clean up the response to ensure it's valid JSON
     if (content.startsWith('```json')) {
@@ -75,8 +75,8 @@ Rules:
     try {
       quiz = JSON.parse(content);
     } catch (parseError) {
-      console.error('❌ JSON Parse Error:', parseError.message);
-      console.error('📄 Content that failed to parse:', content.substring(0, 500));
+      console.error('JSON Parse Error:', parseError.message);
+      console.error('Content that failed to parse:', content.substring(0, 500));
       throw new Error('Failed to parse quiz JSON. The AI response was not properly formatted.');
     }
     
@@ -107,7 +107,7 @@ Rules:
     return quiz;
 
   } catch (error) {
-    console.error('🚨 Gemini API Error:', error);
+    console.error('Gemini API Error:', error);
     
     if (error.message.includes('API_KEY')) {
       throw new Error('Invalid Gemini API key. Please check your API key configuration.');
@@ -135,10 +135,10 @@ export async function testGeminiConnection() {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const result = await model.generateContent("Say hello");
     const response = await result.response;
-    console.log('✅ Gemini API connection successful');
+    console.log('Gemini API connection successful');
     return true;
   } catch (error) {
-    console.error('❌ Gemini API connection failed:', error.message);
+    console.error('Gemini API connection failed:', error.message);
     return false;
   }
 }
