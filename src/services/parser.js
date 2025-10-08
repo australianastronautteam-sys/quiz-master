@@ -12,9 +12,9 @@ export async function parsePDF(filePath) {
       throw new Error(`File not found: ${filePath}`);
     }
 
-    console.log("✅ File exists, reading...");
+    console.log("File exists, reading...");
     const dataBuffer = fs.readFileSync(filePath);
-    console.log("✅ File read successfully, buffer length:", dataBuffer.length);
+    console.log("File read successfully, buffer length:", dataBuffer.length);
 
     // Try Method 1: Standard pdf-parse import
     try {
