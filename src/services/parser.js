@@ -82,7 +82,8 @@ export async function parsePDF(filePath) {
     console.error("❌ PDF parsing completely failed:", error.message);
     
     // Clean up file on error
-    const path = require('path');
+    // Use the path module already imported at line 2
+    const baseDir = path.resolve('/your/allowed/base/directory');
     const baseDir = path.resolve('/your/allowed/base/directory');
     const resolvedPath = path.resolve(baseDir, filePath);
     if (fs.existsSync(resolvedPath)) {
