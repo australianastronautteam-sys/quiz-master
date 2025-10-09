@@ -9,6 +9,16 @@ function fetchDataBad() {
   });
 }
 
+// src/test.js
+async function getData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // ❌ Bad example: async function but no try/catch
 async function fetchDataNoCatch() {
   const data = await fetchDataBad();
