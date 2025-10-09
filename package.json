@@ -6,7 +6,10 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "node --test src/**/__tests__/**/*.test.js",
+    "test:formatter": "node --test src/utils/__tests__/formatter.test.js",
+    "test:watch": "node --test --watch src/**/__tests__/**/*.test.js"
   },
   "keywords": [
     "gemini",
