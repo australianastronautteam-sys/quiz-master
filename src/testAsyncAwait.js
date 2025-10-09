@@ -16,6 +16,18 @@ function getData() {
     .catch(error => console.log(error));
 }
 
+// src/test.js
+function fetchUser() {
+  return fetch('/api/user')
+    .then(response => response.json())
+    .catch(error => console.log(error));
+}
+
+async function deleteUser() {
+  await fetch('/api/user', { method: 'DELETE' });
+  // No error handling - should be flagged
+}
+
 // ❌ Bad example: async function but no try/catch
 async function fetchDataNoCatch() {
   const data = await fetchDataBad();
