@@ -9,6 +9,13 @@ function fetchDataBad() {
   });
 }
 
+// src/test.js
+function getData() {
+  return fetch('https://api.example.com/data')
+    .then(response => response.json()) // Should trigger your rule
+    .catch(error => console.log(error));
+}
+
 // ❌ Bad example: async function but no try/catch
 async function fetchDataNoCatch() {
   const data = await fetchDataBad();
