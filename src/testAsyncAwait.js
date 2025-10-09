@@ -10,10 +10,13 @@ function fetchDataBad() {
 }
 
 // src/test.js
-function getData() {
-  return fetch('https://api.example.com/data')
-    .then(response => response.json()) // Should trigger your rule
-    .catch(error => console.log(error));
+async function getData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // ❌ Bad example: async function but no try/catch
