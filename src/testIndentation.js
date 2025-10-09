@@ -2,7 +2,7 @@
 // These should be flagged by the context
 
 function badIndentTab() {
-\tconsole.log("This uses a tab, not 2 spaces");
+console.log("This uses a tab, not 2 spaces");
 }
 
 function badIndent4Spaces() {
