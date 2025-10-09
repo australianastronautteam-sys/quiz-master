@@ -1,4 +1,4 @@
-// src/test/testRule.js
+// src/test/test.js
 
 const fs = require('fs');
 
