@@ -15,7 +15,7 @@ function readFilePromise(filePath) {
 
 // ❌ Violation: missing error handling in async function
 async function writeFileAsync(filePath, content) {
-  fs.promises.writeFile(filePath, content); // no try/catch
+  await fs.promises.writeFile(filePath, content); // no try/catch
 }
 
 // ❌ Violation: hardcoded secret
