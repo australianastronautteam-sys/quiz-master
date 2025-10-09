@@ -3,7 +3,7 @@ contexts:
     type: ruleset
     description: Enforce Node.js backend coding conventions and best practices
     applies_to:
-      repos: ["your-org/your-repo"] # replace with your GitHub repo
+      repos: ["your-org/your-repo"]
       patterns: ["src/**/*.js"]
     rules:
       - "Use async/await instead of raw promises when possible"
