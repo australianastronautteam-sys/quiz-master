@@ -18,7 +18,7 @@ app.get("/resource1", (req: Request, res: Response) => {
 // Using 500 for client errors
 app.post("/resource2", (req: Request, res: Response) => {
   if (!req.body.name) {
-    return res.status(500).json({ error: "Name is required" })
+    return res.status(400).json({ error: "Name is required" })
   }
   res.status(201).json({ message: "Created" });
 });
