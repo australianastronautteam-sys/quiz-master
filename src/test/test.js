@@ -4,7 +4,13 @@ const fs = require('fs');
 
 // ❌ Violation: using raw promise instead of async/await
 function readFilePromise(filePath) {
-  return fs.promises.readFile(filePath, 'utf-8')
+  const path = require('path');
+  const baseDir = path.resolve(__dirname, 'safe_directory');
+  const resolvedPath = path.resolve(baseDir, filePath);
+  if (!resolvedPath.startsWith(baseDir)) {
+    return Promise.reject(new Error('Invalid file path'));
+  }
+  return fs.promises.readFile(resolvedPath, 'utf-8')
     .then(data => {
       console.log(data);
     })
