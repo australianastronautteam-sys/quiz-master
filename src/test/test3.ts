@@ -27,7 +27,7 @@ app.post("/resource2", (req: Request, res: Response) => {
 app.get("/resource3/:id", (req: Request, res: Response) => {
   const resource = findResource(req.params.id);
   if (!resource) {
-    return res.status(400).json({ error: "Resource not found" })
+    return res.status(404).json({ error: "Resource not found" })
   }
   res.status(200).json(resource);
 });
