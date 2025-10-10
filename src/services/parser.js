@@ -11,7 +11,7 @@ export async function parsePDF(filePath) {
     // Use the path module already imported at line 2
     const baseDir = path.resolve('/your/allowed/base/directory');
     const resolvedPath = path.resolve(baseDir, filePath);
-    if (!resolvedPath.startsWith(baseDir)) {
+    if (!resolvedPath.startsWith(baseDir + path.sep)) {
       throw new Error('Invalid file path');
     }
     if (!fs.existsSync(resolvedPath)) {
@@ -19,9 +19,7 @@ export async function parsePDF(filePath) {
     }
 
     console.log("File exists, reading...");
-=======
     const dataBuffer = fs.readFileSync(resolvedPath);
->>>>>>> 37edf5d1805e2b53287a235d263db7bcaa1bac98
     console.log("File read successfully, buffer length:", dataBuffer.length);
 
     // Try Method 1: Standard pdf-parse import
@@ -29,10 +27,8 @@ export async function parsePDF(filePath) {
       console.log("📦 Attempting Method 1: Standard pdf-parse import...");
       const pdfParse = (await import('pdf-parse')).default;
       const data = await pdfParse(dataBuffer);
-=======
       console.log("✅ Method 1 successful!");
       return await handleParseResult(data, resolvedPath);
->>>>>>> 37edf5d1805e2b53287a235d263db7bcaa1bac98
     } catch (method1Error) {
       console.log("Method 1 failed:", method1Error.message);
     }
@@ -44,10 +40,8 @@ export async function parsePDF(filePath) {
       const require = createRequire(import.meta.url);
       const pdfParse = require('pdf-parse');
       const data = await pdfParse(dataBuffer);
-=======
       console.log("✅ Method 2 successful!");
       return await handleParseResult(data, resolvedPath);
->>>>>>> 37edf5d1805e2b53287a235d263db7bcaa1bac98
     } catch (method2Error) {
       console.log("Method 2 failed:", method2Error.message);
     }
@@ -59,10 +53,8 @@ export async function parsePDF(filePath) {
       const pdfParse = pdfParseModule.default || pdfParseModule;
       if (typeof pdfParse === 'function') {
         const data = await pdfParse(dataBuffer);
-=======
         console.log("✅ Method 3 successful!");
         return await handleParseResult(data, resolvedPath);
->>>>>>> 37edf5d1805e2b53287a235d263db7bcaa1bac98
       }
     } catch (method3Error) {
       console.log("Method 3 failed:", method3Error.message);
@@ -76,10 +68,8 @@ export async function parsePDF(filePath) {
       console.log("Method 4 successful!");
       
       // Clean up file
-=======
       fs.unlinkSync(resolvedPath);
       console.log("🗑️ Temporary file cleaned up");
->>>>>>> 37edf5d1805e2b53287a235d263db7bcaa1bac98
       
       return text;
     } catch (method4Error) {
@@ -93,7 +83,6 @@ export async function parsePDF(filePath) {
     
     // Clean up file on error
     // Use the path module already imported at line 2
-    const baseDir = path.resolve('/your/allowed/base/directory');
     const baseDir = path.resolve('/your/allowed/base/directory');
     const resolvedPath = path.resolve(baseDir, filePath);
     if (fs.existsSync(resolvedPath)) {
