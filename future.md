@@ -4,7 +4,7 @@
 
 Your system design is solid! Here's the comprehensive architecture with all components:
 
-## 🔧 Core Components
+## Core Components
 
 ### 1. **Frontend Web Application**
 - **User Registration/Login Interface**
