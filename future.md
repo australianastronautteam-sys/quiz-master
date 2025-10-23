@@ -1,4 +1,4 @@
-# 🏗️ AI Quiz Generator - Complete System Design
+# AI Quiz Generator - Complete System Design
 
 ## 📋 System Architecture Overview
 
