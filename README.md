@@ -2,7 +2,7 @@
 
 An intelligent quiz generator that creates multiple choice questions from PDF documents or text input using Google Gemini AI.
 
-## 🚀 Features
+## Features
 
 - **PDF Upload**: Extract text from PDF files and generate quizzes
 - **Text Input**: Generate quizzes from raw text input
